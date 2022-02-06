@@ -7,6 +7,11 @@ public class BallBehaviour : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float moveSpeed = 10;
+    public int damage;
+
+    public BallEffect power1;
+    public BallEffect power2;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,16 +30,33 @@ public class BallBehaviour : MonoBehaviour
     {
         rb.velocity = dir * moveSpeed;
 
-        //balleffect.OnBallSpawn()
+        power1.OnBallSpawn();
+        power2.OnBallSpawn();
     }
 
     public void IsMoving()
     {
-        //balleffect.OnBallMoving()
+        power1.OnBallMoving();
+        power2.OnBallMoving();
     }
 
-    public void Hit()
+    public void Hit(EnemyBalls enemyBall)
     {
-        //balleffect.OnBallHit()
+        enemyBall.takeDamage(damage);
+
+        power1.OnBallHit();
+        power2.OnBallHit();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit something");
+        EnemyBalls enemyBall = collision.gameObject.GetComponent<EnemyBalls>();
+
+        if (enemyBall != null)
+        {
+            Hit(enemyBall);
+            Debug.Log("was enemyball!");
+        }
     }
 }
