@@ -10,7 +10,7 @@ public class BallEffect : MonoBehaviour
 
     }
 
-    public virtual void OnBallMoving()
+    public virtual void OnBallMoving(GameObject gameObject)
     {
 
     }

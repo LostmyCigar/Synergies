@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
+
+    private bool paused;
     public void OnPlayClicked()
     {
         SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
@@ -20,8 +22,23 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene("SettingsScene", LoadSceneMode.Single);
     }
 
+    public void OnMenuClicked()
+    {
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
+    }
+
     public void OnPauseClicked()
     {
-        Time.timeScale = 0;
+        if (!paused)
+        {
+            Time.timeScale = 0;
+            paused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            paused = false;
+        }
+       
     }
 }

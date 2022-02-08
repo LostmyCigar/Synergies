@@ -16,14 +16,11 @@ public class BallBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Start()
-    {
-        
-    }
+    
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        IsMoving();
     }
 
     public void Launch(Vector2 dir)
@@ -36,8 +33,8 @@ public class BallBehaviour : MonoBehaviour
 
     public void IsMoving()
     {
-        power1.OnBallMoving();
-        power2.OnBallMoving();
+        power1.OnBallMoving(gameObject);
+        power2.OnBallMoving(gameObject);
     }
 
     public void Hit(EnemyBalls enemyBall)
@@ -50,13 +47,11 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("hit something");
         EnemyBalls enemyBall = collision.gameObject.GetComponent<EnemyBalls>();
 
         if (enemyBall != null)
         {
             Hit(enemyBall);
-            Debug.Log("was enemyball!");
         }
     }
 }
