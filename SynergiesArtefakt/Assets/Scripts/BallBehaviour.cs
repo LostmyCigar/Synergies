@@ -25,28 +25,56 @@ public class BallBehaviour : MonoBehaviour
 
     public void Launch(Vector2 dir)
     {
+
         rb.velocity = dir * moveSpeed;
 
-        power1.OnBallSpawn();
-        power2.OnBallSpawn();
+        Debug.Log(dir);
+        Debug.Log(moveSpeed);
+
+        if (power1 != null)
+        {
+            power1.OnBallSpawn();
+        }
+        if (power2 != null)
+        {
+            power2.OnBallSpawn();
+        }
+
+
     }
 
     public void IsMoving()
     {
-        power1.OnBallMoving(gameObject);
-        power2.OnBallMoving(gameObject);
+        if (power1 != null)
+        {
+            power1.OnBallMoving(gameObject);
+        }
+        if (power2 != null)
+        {
+            power2.OnBallMoving(gameObject);
+        }
+
     }
 
     public void Hit(EnemyBalls enemyBall)
     {
         enemyBall.takeDamage(damage);
 
-        power1.OnBallHit();
-        power2.OnBallHit();
+
+        if (power1 != null)
+        {
+            power1.OnBallHit();
+        }
+        if (power2 != null)
+        {
+            power2.OnBallHit();
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Hit: " + collision.gameObject.name);
         EnemyBalls enemyBall = collision.gameObject.GetComponent<EnemyBalls>();
 
         if (enemyBall != null)

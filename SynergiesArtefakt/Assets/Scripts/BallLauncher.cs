@@ -15,6 +15,9 @@ public class BallLauncher : MonoBehaviour
 
     private LaunchPreview launchPreview;
     private GameManager gameManager;
+    private DataHolder dataHolder;
+    private BallEffect effect1;
+    private BallEffect effect2;
 
     [SerializeField] private GameObject BallPrefab;
     [SerializeField] private Image cooldownImage;

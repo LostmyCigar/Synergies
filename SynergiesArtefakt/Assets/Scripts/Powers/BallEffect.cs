@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BallEffect : MonoBehaviour
 {
-
+    public string effectName;
+    public int index;
     public virtual void OnBallSpawn()
     {
 
