@@ -28,16 +28,13 @@ public class BallBehaviour : MonoBehaviour
 
         rb.velocity = dir * moveSpeed;
 
-        Debug.Log(dir);
-        Debug.Log(moveSpeed);
-
         if (power1 != null)
         {
-            power1.OnBallSpawn();
+            power1.OnBallSpawn(gameObject);
         }
         if (power2 != null)
         {
-            power2.OnBallSpawn();
+            power2.OnBallSpawn(gameObject);
         }
 
 
@@ -63,18 +60,17 @@ public class BallBehaviour : MonoBehaviour
 
         if (power1 != null)
         {
-            power1.OnBallHit();
+            power1.OnBallHit(gameObject);
         }
         if (power2 != null)
         {
-            power2.OnBallHit();
+            power2.OnBallHit(gameObject);
         }
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit: " + collision.gameObject.name);
         EnemyBalls enemyBall = collision.gameObject.GetComponent<EnemyBalls>();
 
         if (enemyBall != null)

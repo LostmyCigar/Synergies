@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer effectImage2;
 
 
-    private void Start()
+    private void Awake()
     {
         dataHolder = GameObject.Find("DataHolder").GetComponent<DataHolder>();
 

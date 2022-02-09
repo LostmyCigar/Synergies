@@ -46,8 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballEffectIcons:
   - {fileID: 5122706112862268978, guid: d6629fb5c97d2ab46ae238d5ea88068f, type: 3}
+  - {fileID: 5640144788985373879, guid: 6dcfd32f7eb8dfc4595bdaf1b7c604cc, type: 3}
+  - {fileID: 1560596177831846427, guid: aa7ae9017f900d54f856f777c7809cfa, type: 3}
+  - {fileID: 2064258195596081026, guid: 0550c7d7b9ea6d84399376c8b1961d31, type: 3}
   ballEffects:
   - {fileID: 7390402842722941820}
+  - {fileID: 671780015002473078}
+  - {fileID: 996894379960798215}
+  - {fileID: 2268595939117422220}
   effect1: {fileID: 0}
   effect2: {fileID: 0}
   panel: {fileID: 0}
@@ -60,7 +66,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7390402842722941795}
+  - component: {fileID: 538765215562350463}
   - component: {fileID: 7390402842722941820}
+  - component: {fileID: 671780015002473078}
+  - component: {fileID: 996894379960798215}
+  - component: {fileID: 2268595939117422220}
   m_Layer: 0
   m_Name: PowerHolder
   m_TagString: Untagged
@@ -82,6 +92,21 @@ Transform:
   m_Father: {fileID: 7390402842431580652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &538765215562350463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390402842722941794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d64235d0a9a344698c3ef7870a987b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerDependant:
+  - {fileID: 7390402842722941820}
+  - {fileID: 2268595939117422220}
 --- !u!114 &7390402842722941820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,3 +121,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: BallExplosion
   index: 0
+  gameManager: {fileID: 0}
+  smallBall: {fileID: 8741046651782035553, guid: f1a9a3c1dbee7bc43b347ae06795359e, type: 3}
+--- !u!114 &671780015002473078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390402842722941794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4371d2e2dbdb4a64fa1d1dcde9bdb7a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: BallFast
+  index: 1
+  gameManager: {fileID: 0}
+  speedMultiplier: 2
+--- !u!114 &996894379960798215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390402842722941794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7148f2cfaec9174c8b6576c562bbb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: BallSlow
+  index: 2
+  gameManager: {fileID: 0}
+  speedMultiplier: 0.5
+--- !u!114 &2268595939117422220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390402842722941794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685b8457895440046b54d7db4ce0a2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: BallOneMore
+  index: 3
+  gameManager: {fileID: 0}
+  ExtraBall: {fileID: 483046099549121883, guid: d3cab294dc8b6134cac46e3c23a6425b, type: 3}
+  timeBetweenSpawn: 0.2

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ public class BallEffect : MonoBehaviour
 {
     public string effectName;
     public int index;
-    public virtual void OnBallSpawn()
+
+    public GameManager gameManager;
+    public virtual void OnBallSpawn(GameObject gameObject)
     {
 
     }
@@ -16,7 +19,12 @@ public class BallEffect : MonoBehaviour
 
     }
 
-    public virtual void OnBallHit()
+    public virtual void OnBallHit(GameObject gameObject)
+    {
+        
+    }
+
+    public virtual void UpdateOnPlayScene()
     {
 
     }

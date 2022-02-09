@@ -14,10 +14,12 @@ public class DataHolder : MonoBehaviour
     public BallEffect effect2;
 
     [SerializeField] private Transform panel;
+    private PowerHolder powerHolder;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        powerHolder = GetComponentInChildren<PowerHolder>();
 
     }
 
@@ -34,7 +36,6 @@ public class DataHolder : MonoBehaviour
         if (sceneName == "PowersScene")
         {
             panel = GameObject.Find("Canvas").transform.Find("Effects").Find("NonActive").Find("Panel");
-            Debug.Log(GameObject.Find("Canvas").transform.Find("Effects").Find("NonActive").Find("Panel"));
 
             for (int i = 0; i < ballEffectIcons.Count; i++)
             {
@@ -42,6 +43,10 @@ public class DataHolder : MonoBehaviour
             }
         }
 
+        if (sceneName == "PlayScene")
+        {
+            powerHolder.UpdateOnPlayScene();
+        }
     } 
 
     public void EquippEffect(int slott, string effect)
