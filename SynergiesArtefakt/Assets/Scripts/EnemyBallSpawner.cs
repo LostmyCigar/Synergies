@@ -69,7 +69,7 @@ public class EnemyBallSpawner : MonoBehaviour
     {
         if (rowsSpawned < 4)
         {
-            if (UnityEngine.Random.Range(0, 100) <= 30)
+            if (UnityEngine.Random.Range(0, 100) <= 50)
             {
                 rowsSpawned++;
             }
@@ -81,6 +81,9 @@ public class EnemyBallSpawner : MonoBehaviour
         else if (spawnTimer > 2)
         {
             spawnTimer -= 0.3f;
+        } else if (UnityEngine.Random.Range(0, 100) <= 50)
+        {
+            rowsSpawned++;
         }
 
         if (ballSpeed < 2)

@@ -49,11 +49,13 @@ MonoBehaviour:
   - {fileID: 5640144788985373879, guid: 6dcfd32f7eb8dfc4595bdaf1b7c604cc, type: 3}
   - {fileID: 1560596177831846427, guid: aa7ae9017f900d54f856f777c7809cfa, type: 3}
   - {fileID: 2064258195596081026, guid: 0550c7d7b9ea6d84399376c8b1961d31, type: 3}
+  - {fileID: 8339920593853283564, guid: 3d15660f9ab70a1449c03124fedbb388, type: 3}
   ballEffects:
   - {fileID: 7390402842722941820}
   - {fileID: 671780015002473078}
   - {fileID: 996894379960798215}
   - {fileID: 2268595939117422220}
+  - {fileID: 7597744634741422048}
   effect1: {fileID: 0}
   effect2: {fileID: 0}
   panel: {fileID: 0}
@@ -71,6 +73,7 @@ GameObject:
   - component: {fileID: 671780015002473078}
   - component: {fileID: 996894379960798215}
   - component: {fileID: 2268595939117422220}
+  - component: {fileID: 7597744634741422048}
   m_Layer: 0
   m_Name: PowerHolder
   m_TagString: Untagged
@@ -172,3 +175,18 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   ExtraBall: {fileID: 483046099549121883, guid: d3cab294dc8b6134cac46e3c23a6425b, type: 3}
   timeBetweenSpawn: 0.2
+--- !u!114 &7597744634741422048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390402842722941794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe68683abbe1d67468fc96b79ec6a5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: BallXVel
+  index: 4
+  gameManager: {fileID: 0}
