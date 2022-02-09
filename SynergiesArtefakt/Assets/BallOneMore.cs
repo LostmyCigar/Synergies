@@ -7,6 +7,8 @@ public class BallOneMore : BallEffect
     private BallEffect otherEffect;
     public GameObject ExtraBall;
     public float timeBetweenSpawn;
+
+   // private Vector2 dir
     public override void OnBallSpawn(GameObject ball)
     {
         base.OnBallSpawn(ball);
