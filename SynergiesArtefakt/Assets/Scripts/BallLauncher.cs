@@ -21,7 +21,6 @@ public class BallLauncher : MonoBehaviour
 
     [SerializeField] private GameObject BallPrefab;
     [SerializeField] private Image cooldownImage;
-    [SerializeField] private Image cooldownImage2;
 
     private void Awake()
     {
@@ -62,7 +61,6 @@ public class BallLauncher : MonoBehaviour
 
 
         cooldownImage.fillAmount = (Time.time - lastLaunch)/launchCooldown;
-        cooldownImage2.fillAmount = (Time.time - lastLaunch) / launchCooldown;
     }
 
     public void StartDrag(Vector2 pos)

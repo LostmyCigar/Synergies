@@ -15,7 +15,7 @@ TagManager:
   - UI
   - PlayerBall
   - EnemyBall
-  - 
+  - Background
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2352570133
+    locked: 0
+  - name: GameObjects
+    uniqueID: 932894581
     locked: 0
