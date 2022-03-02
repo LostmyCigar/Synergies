@@ -55,6 +55,6 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-
+        Time.timeScale = 0;
     }
 }
