@@ -17,6 +17,8 @@ public class EnemyBalls : MonoBehaviour
     [SerializeField] private int hpLeft = 2;
     [SerializeField] private float downSpeed = 5;
 
+    [SerializeField] private GameObject deathEffect;
+
     private GameManager gameManager;
 
     private void Awake()
@@ -28,17 +30,13 @@ public class EnemyBalls : MonoBehaviour
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-    private void Start()
-    {
-
-    }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(rb.velocity.x, -downSpeed);
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         hpLeft -= damage;
         UppdateUI();
@@ -49,9 +47,15 @@ public class EnemyBalls : MonoBehaviour
     {
         if (hpLeft <= 0)
         {
-            Destroy(gameObject);
-            gameManager.IncreaseScore();
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        gameManager.IncreaseScore();
     }
 
     private void UppdateUI()

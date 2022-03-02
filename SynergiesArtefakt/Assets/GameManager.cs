@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public BallEffect EquippedPower1;
     public BallEffect EquippedPower2;
     public DataHolder dataHolder;
+    
 
     [SerializeField] private SpriteRenderer effectImage1;
     [SerializeField] private SpriteRenderer effectImage2;
+    private bool freezeScore;
 
 
     private void Awake()
@@ -50,11 +52,34 @@ public class GameManager : MonoBehaviour
     }
     public void IncreaseScore()
     {
-        score++;
-        scoreText.text = score.ToString();
+        if (!freezeScore)
+        {
+            score++;
+            scoreText.text = score.ToString();
+        }
     }
     public void EndGame()
     {
+        freezeScore = true;
         Time.timeScale = 0;
+
+        StartCoroutine(DestroyAllEnemies());
+
+
+        IEnumerable DestroyAllEnemies()
+        {
+            GameObject[] EnemyBalls;
+            EnemyBalls = GameObject.FindGameObjectsWithTag("DangerBall");
+            yield return new WaitForSeconds(2);
+
+            for (int i = 0; i < EnemyBalls.Length; i++)
+            {
+                EnemyBalls enemyball = EnemyBalls[i].GetComponent<EnemyBalls>();
+                if (enemyball != null)
+                {
+                    enemyball.Die();
+                }
+            }
+        }
     }
 }

@@ -55,7 +55,7 @@ public class BallBehaviour : MonoBehaviour
 
     public void Hit(EnemyBalls enemyBall)
     {
-        enemyBall.takeDamage(damage);
+        enemyBall.TakeDamage(damage);
 
 
         if (power1 != null)

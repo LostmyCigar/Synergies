@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5940185150609831325}
   - component: {fileID: 5940185150609831322}
   m_Layer: 7
-  m_Name: EnemyBall 1
+  m_Name: EnemyBall
   m_TagString: DangerBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5bdfed761d9540547a81f670794c9503, type: 3}
   hpLeft: 2
   downSpeed: 1
+  deathEffect: {fileID: 3085824861585158805, guid: c29b7aae626b8e040a97552811dadfdd, type: 3}
 --- !u!212 &5940185150609831326
 SpriteRenderer:
   m_ObjectHideFlags: 0
