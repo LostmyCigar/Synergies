@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public int score;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverScoreText;
 
 
     public BallEffect EquippedPower1;
@@ -16,11 +18,17 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SpriteRenderer effectImage1;
     [SerializeField] private SpriteRenderer effectImage2;
+
+    [SerializeField] private GameObject gameOverMenu;
     private bool freezeScore;
 
+    private BallLauncher ballLauncher;
+    private EnemyBallSpawner enemyBallSpawner;
 
     private void Awake()
     {
+        ballLauncher = GetComponent<BallLauncher>();
+        enemyBallSpawner = GetComponent<EnemyBallSpawner>();
         dataHolder = GameObject.Find("DataHolder").GetComponent<DataHolder>();
 
         if (dataHolder != null)
@@ -50,6 +58,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+   
     public void IncreaseScore()
     {
         if (!freezeScore)
@@ -60,18 +70,34 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
+        ballLauncher.enabled = false;
+        enemyBallSpawner.enabled = false;
         freezeScore = true;
-        Time.timeScale = 0;
 
-        StartCoroutine(DestroyAllEnemies());
+        GameObject[] PlayerBalls;
+        PlayerBalls = GameObject.FindGameObjectsWithTag("PlayerBall");
+        for (int i = 0; i < PlayerBalls.Length; i++)
+        {
+            Destroy(PlayerBalls[i]); 
+        }
 
+        StartCoroutine(EndGameTimer());
 
-        IEnumerable DestroyAllEnemies()
+        IEnumerator EndGameTimer()
         {
             GameObject[] EnemyBalls;
             EnemyBalls = GameObject.FindGameObjectsWithTag("DangerBall");
-            yield return new WaitForSeconds(2);
+            for (int i = 0; i < EnemyBalls.Length; i++)
+            {
+                EnemyBalls enemyball = EnemyBalls[i].GetComponent<EnemyBalls>();
+                if (enemyball != null)
+                {
+                    EnemyBalls[i].gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                }
+            }
 
+
+            yield return new WaitForSecondsRealtime(1.3f);
             for (int i = 0; i < EnemyBalls.Length; i++)
             {
                 EnemyBalls enemyball = EnemyBalls[i].GetComponent<EnemyBalls>();
@@ -79,7 +105,16 @@ public class GameManager : MonoBehaviour
                 {
                     enemyball.Die();
                 }
+
+                if (EnemyBalls.Length > 10)
+                {
+                    yield return new WaitForSecondsRealtime(0.03f);
+                }
+                else yield return new WaitForSecondsRealtime(0.07f);
             }
+            yield return new WaitForSecondsRealtime(1.2f);
+            gameOverMenu.SetActive(true);
+            gameOverScoreText.text = score.ToString();
         }
     }
 }
