@@ -5617,6 +5617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7390402842722941820, guid: ba32a3dacd81c844c8ae58a26036656b, type: 3}
+      propertyPath: CannotDoubleCast
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba32a3dacd81c844c8ae58a26036656b, type: 3}
 --- !u!1 &1398973202

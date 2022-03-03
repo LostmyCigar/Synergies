@@ -23,7 +23,6 @@ public class BallOneMore : BallEffect
         var ball = Instantiate(ExtraBall, startPos, Quaternion.identity);
         ball.GetComponent<BallBehaviour>().power1 = otherEffect;
         ball.GetComponent<BallBehaviour>().Launch(extraBall.GetComponent<Rigidbody2D>().velocity.normalized);
-        Debug.Log("Launched");
     }
     public override void UpdateOnPlayScene()
     {

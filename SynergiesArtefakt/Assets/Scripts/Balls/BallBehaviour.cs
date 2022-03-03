@@ -37,7 +37,8 @@ public class BallBehaviour : MonoBehaviour
             power2.OnBallSpawn(gameObject);
         }
 
-
+        Debug.Log("Power1 = " + power1);
+        Debug.Log("Power2 = " + power2);
     }
 
     public void IsMoving()
@@ -56,7 +57,6 @@ public class BallBehaviour : MonoBehaviour
     public void Hit(EnemyBalls enemyBall)
     {
         enemyBall.TakeDamage(damage);
-
 
         if (power1 != null)
         {

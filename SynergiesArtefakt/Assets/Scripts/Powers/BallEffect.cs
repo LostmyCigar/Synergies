@@ -7,6 +7,8 @@ public class BallEffect : MonoBehaviour
 {
     public string effectName;
     public int index;
+    public int priority;
+    public bool CannotDoubleCast;
 
     public GameManager gameManager;
     public virtual void OnBallSpawn(GameObject gameObject)
